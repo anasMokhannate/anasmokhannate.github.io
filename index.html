@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mokhannate Anas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000000; 
+        }
+
+        /* Brutalist/Sharp Hover Effects */
+        .btn-sharp {
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .btn-sharp:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #000000;
+        }
+        .btn-sharp:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px #000000;
+        }
+
+        .card-sharp {
+            border: 2px solid black;
+            transition: transform 0.3s ease;
+        }
+        .card-sharp:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen overflow-x-hidden selection:bg-black selection:text-white">
+
+    <!-- 3D Background Container -->
+    <div id="canvas-container" class="fixed top-0 left-0 w-full h-full z-0 opacity-40 pointer-events-none"></div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+        
+        <!-- Navigation -->
+        <nav class="w-full border-b-2 border-black bg-white/90 backdrop-blur-sm sticky top-0 z-50">
+            <div class="max-w-[1920px] mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="text-2xl font-extrabold tracking-tighter uppercase">Mokhannate<span class="text-gray-400">Anas</span>.</div>
+                <div class="hidden md:flex space-x-8 font-semibold text-sm tracking-wide">
+                    <a href="#" class="hover:underline decoration-2 underline-offset-4">ABOUT ME</a>
+                    <a href="#" class="hover:underline decoration-2 underline-offset-4">WORK HISTORY</a>
+                    <a href="#" class="hover:underline decoration-2 underline-offset-4">EDUCATION</a>
+                    <a href="#" class="hover:underline decoration-2 underline-offset-4">PROJECTS</a>
+                    <a href="#" class="hover:underline decoration-2 underline-offset-4">CONTACT</a>
+                </div>
+                <button class="md:hidden text-2xl font-bold">☰</button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <main class="flex-grow">
+            <section class="min-h-[80vh] flex items-center border-b-2 border-black">
+                <div class="w-full max-w-[1920px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div class="lg:col-span-8 flex flex-col justify-center">
+                        <h1 class="text-7xl sm:text-8xl md:text-9xl font-black leading-none mb-8 tracking-tighter mix-blend-multiply">
+                            WE BUILD<br>
+                            <span class="text-outline text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-800" style="-webkit-text-stroke: 2px black;">DATA SYSTEMS</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl font-light max-w-2xl leading-relaxed mb-10 border-l-4 border-black pl-6">
+                            Crafting scalable and efficient data systems that transform raw information into actionable insights. Our expertise lies in designing architectures that prioritize performance, reliability, and security.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="btn-sharp bg-black text-white px-8 py-4 text-lg font-bold border-2 border-black uppercase tracking-widest">
+                                View Github
+                            </button>
+                            <button class="btn-sharp bg-white text-black px-8 py-4 text-lg font-bold border-2 border-black uppercase tracking-widest">
+                                Contact Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grid Content Section -->
+            <section class="py-24 border-b-2 border-black bg-white">
+                <div class="w-full max-w-[1920px] mx-auto px-6">
+                    <div class="flex justify-between items-end mb-16">
+                        <h2 class="text-5xl font-bold uppercase tracking-tight">Selected Works</h2>
+                        <span class="hidden md:block text-xl font-mono">01 — 03</span>
+                    </div>
+
+                    <!-- Wide Grid Layout -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t-2 border-l-2 border-black">
+                        
+                        <!-- Item 1 -->
+                        <div class="group border-r-2 border-b-2 border-black p-8 md:p-12 hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer h-96 flex flex-col justify-between">
+                            <div class="w-12 h-12 border-2 border-current rounded-full flex items-center justify-center text-xl font-bold group-hover:bg-white group-hover:text-black transition-colors">A</div>
+                            <div>
+                                <h3 class="text-3xl font-bold mb-2">Wireframe Logic</h3>
+                                <p class="text-sm font-mono opacity-70">ARCHITECTURAL VISUALIZATION</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="group border-r-2 border-b-2 border-black p-8 md:p-12 hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer h-96 flex flex-col justify-between">
+                            <div class="w-12 h-12 border-2 border-current rounded-full flex items-center justify-center text-xl font-bold group-hover:bg-white group-hover:text-black transition-colors">B</div>
+                            <div>
+                                <h3 class="text-3xl font-bold mb-2">Mono Spatial</h3>
+                                <p class="text-sm font-mono opacity-70">INTERACTIVE INSTALLATION</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="group border-r-2 border-b-2 border-black p-8 md:p-12 hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer h-96 flex flex-col justify-between">
+                            <div class="w-12 h-12 border-2 border-current rounded-full flex items-center justify-center text-xl font-bold group-hover:bg-white group-hover:text-black transition-colors">C</div>
+                            <div>
+                                <h3 class="text-3xl font-bold mb-2">Vortex Data</h3>
+                                <p class="text-sm font-mono opacity-70">ANALYTICS DASHBOARD</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feature Section -->
+            <section class="py-24 bg-black text-white">
+                <div class="w-full max-w-[1920px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+                            DESIGN IS<br>INTELLIGENCE<br>MADE VISIBLE.
+                        </h2>
+                        <p class="text-gray-400 text-lg mb-8 max-w-md">
+                            We utilize three-dimensional space to create depth in a flat world. Our approach strips away the unnecessary, leaving only what is essential.
+                        </p>
+                        <ul class="space-y-4 font-mono text-sm">
+                            <li class="flex items-center border-b border-gray-700 pb-2">
+                                <span class="mr-4 text-xl">→</span> WEBGL INTEGRATION
+                            </li>
+                            <li class="flex items-center border-b border-gray-700 pb-2">
+                                <span class="mr-4 text-xl">→</span> RESPONSIVE GEOMETRY
+                            </li>
+                            <li class="flex items-center border-b border-gray-700 pb-2">
+                                <span class="mr-4 text-xl">→</span> HIGH PERFORMANCE
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="h-96 w-full border-2 border-white relative overflow-hidden" id="mini-canvas-wrapper">
+                        <!-- Canvas for secondary effect -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-6xl font-black animate-pulse">3D</div>
+                                <div class="text-sm mt-2 tracking-widest">VISUAL SYSTEM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t-2 border-black pt-16 pb-8">
+            <div class="w-full max-w-[1920px] mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                    <div>
+                        <h4 class="font-bold mb-4 uppercase">Social</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="hover:underline">Instagram</a></li>
+                            <li><a href="#" class="hover:underline">Twitter</a></li>
+                            <li><a href="#" class="hover:underline">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 uppercase">Office</h4>
+                        <p class="text-sm">
+                            128 Grid Street<br>
+                            Vector City, 90210<br>
+                            Digital Realm
+                        </p>
+                    </div>
+                    <div class="col-span-2">
+                        <h4 class="font-bold mb-4 uppercase">Newsletter</h4>
+                        <form class="flex border-2 border-black max-w-md">
+                            <input type="email" placeholder="Email Address" class="flex-grow px-4 py-3 outline-none bg-transparent placeholder-gray-500">
+                            <button type="submit" class="bg-black text-white px-6 py-3 font-bold hover:bg-gray-800 transition-colors">→</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pt-8 border-t border-gray-200">
+                    <p class="text-xs font-mono">© 2024 STRUCTURE INC.</p>
+                    <p class="text-xs font-mono">SYSTEM: ONLINE</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Three.js Background Animation
+        // Goal: Create a wide, flowing wireframe landscape or floating particles
+        // No central cube.
+
+        const container = document.getElementById('canvas-container');
+        
+        // Scene Setup
+        const scene = new THREE.Scene();
+        // White fog to blend geometry into the distance
+        scene.fog = new THREE.FogExp2(0xffffff, 0.002);
+
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        // Geometry: Large flowing plane (Terrain)
+        // Using a PlaneGeometry with many segments to create a wave
+        const geometry = new THREE.PlaneGeometry(200, 200, 40, 40);
+        
+        // Material: Black wireframe
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x000000, 
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15 // Subtle effect
+        });
+
+        const plane = new THREE.Mesh(geometry, material);
+        
+        // Rotate to look like a floor/landscape
+        plane.rotation.x = -Math.PI / 2 + 0.2; // Slight tilt
+        plane.position.y = -20;
+        plane.position.z = -20;
+        
+        scene.add(plane);
+
+        // Add some floating geometric debris (Icosahedrons) for extra "3D" feel without a central block
+        const particlesGeometry = new THREE.IcosahedronGeometry(1, 0);
+        const particlesMaterial = new THREE.MeshBasicMaterial({ 
+            color: 0x000000, 
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3
+        });
+
+        const particles = [];
+        for(let i=0; i<15; i++) {
+            const mesh = new THREE.Mesh(particlesGeometry, particlesMaterial);
+            mesh.position.set(
+                (Math.random() - 0.5) * 100,
+                (Math.random() - 0.5) * 60,
+                (Math.random() - 0.5) * 50 - 20
+            );
+            mesh.rotation.set(Math.random()*Math.PI, Math.random()*Math.PI, 0);
+            scene.add(mesh);
+            particles.push({
+                mesh: mesh,
+                speedRot: { x: Math.random() * 0.01, y: Math.random() * 0.01 },
+                speedMov: { y: (Math.random() * 0.05) + 0.01 }
+            });
+        }
+
+        camera.position.z = 30;
+
+        // Mouse Interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', onDocumentMouseMove);
+        window.addEventListener('resize', onWindowResize);
+
+        function onDocumentMouseMove(event) {
+            mouseX = (event.clientX - windowHalfX);
+            mouseY = (event.clientY - windowHalfY);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // Animation Loop
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const elapsedTime = clock.getElapsedTime();
+
+            // Animate Plane (Wave effect)
+            const positionAttribute = geometry.attributes.position;
+            const vertex = new THREE.Vector3();
+            
+            // We need to access original positions to avoid drifting, 
+            // but for simple noise we can just use sin/cos based on index
+            for (let i = 0; i < positionAttribute.count; i++) {
+                // Get original x/y (which are x/z in our rotated world)
+                const x = positionAttribute.getX(i);
+                const y = positionAttribute.getY(i); // This is actually Z depth on the plane before rotation
+                
+                // Calculate wave height
+                const z = Math.sin(x * 0.1 + elapsedTime * 0.5) * 2 + Math.sin(y * 0.1 + elapsedTime * 0.3) * 2;
+                
+                positionAttribute.setZ(i, z);
+            }
+            positionAttribute.needsUpdate = true;
+
+            // Smooth camera movement based on mouse
+            targetX = mouseX * 0.01;
+            targetY = mouseY * 0.01;
+
+            camera.position.x += (targetX - camera.position.x) * 0.05;
+            camera.position.y += (-targetY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            // Animate floating particles
+            particles.forEach(p => {
+                p.mesh.rotation.x += p.speedRot.x;
+                p.mesh.rotation.y += p.speedRot.y;
+                p.mesh.position.y += p.speedMov.y;
+                
+                // Reset if goes too high
+                if(p.mesh.position.y > 30) {
+                    p.mesh.position.y = -30;
+                }
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
